@@ -21,7 +21,10 @@ Use it to make something cool, have fun, and share what you've learned
 with others.
 */
 
-
+a.custom-logo-link img{
+	width: 5%;
+	height: auto;
+}
 
 
 
