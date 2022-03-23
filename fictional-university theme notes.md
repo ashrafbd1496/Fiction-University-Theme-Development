@@ -26,4 +26,8 @@ wp_enqueue_script('script_name',get_theme_file_uri('file_path',array('jquery'),'
 
 *** to comment a html block  <!-- divs are  here  	-->
 
-*** 
+*** we can add menu item link using site_url('/about-us'); and for home only use site_url();
+
+*** to get the id of a post or page <?php echo get_the_ID(); and 
+	to get the parent page id - echo wp_get_post_parent_id(get_the_ID());
+	
