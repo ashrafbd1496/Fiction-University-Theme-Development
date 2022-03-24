@@ -18,6 +18,7 @@
   <div class="container container--narrow page-section">
 
   	<?php 
+
   		$theParent =  wp_get_post_parent_id(get_the_ID());
 
   		if ($theParent) { ?>
@@ -31,7 +32,8 @@
 
   
     <?php 
-
+    	//condition for showing sidebar menu for parent or child pages only
+    	
     	$theChild = get_pages(array(
     		'child_of'	=> get_the_ID(),
     	));
@@ -43,7 +45,8 @@
 		      <ul class="min-list">
 
 		      	<?php 
-
+		      	//condtion to show child pages of parent page correctly
+		      	
 		        if($theParent){
 		    		$findChildrenOf = $theParent;
 		    	}else{
@@ -69,6 +72,4 @@
     
   <?php } 
 
-  get_footer();
-
-?>
+get_footer();?>

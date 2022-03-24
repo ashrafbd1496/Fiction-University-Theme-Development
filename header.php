@@ -31,7 +31,7 @@
          ?>
 
         <!--<h1 class="school-logo-text float-left">
-          <a href="<?php echo site_url(); ?>"><strong><?php echo __('Fictional','funiversity'); ?></strong><?php echo __('University','funiversity') ?></a>
+          <a href="<?php// echo site_url(); ?>"><strong><?php //echo __('Fictional','funiversity'); ?></strong><?php //echo __('University','funiversity') ?></a>
         </h1>
       -->
 
@@ -40,11 +40,12 @@
         <div class="site-header__menu group">
           <nav class="main-navigation">
             <ul>
-              <li><a href="<?php echo site_url('/about-us'); ?>"><?php echo __('About Us','funiversity') ?></a></li>
-              <li><a href="#">Programs</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">Campuses</a></li>
-              <li><a href="#">Blog</a></li>
+              <?php 
+                  wp_nav_menu(array(
+                    'theme_location'  => 'HeaderMenuLocation',
+                  ));
+                 
+               ?>
             </ul>
           </nav>
           <div class="site-header__util">
