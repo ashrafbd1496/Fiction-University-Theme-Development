@@ -41,11 +41,11 @@ a.custom-logo-link img{
 	font-size: 3rem;
 }
 
-
-
-
-
-
+a.page-numbers, .current {
+    border: 1px solid;
+    padding: 5px 10px;
+    text-decoration: none;
+}
 
 
 
