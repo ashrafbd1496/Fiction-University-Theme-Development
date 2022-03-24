@@ -26,9 +26,16 @@ a.custom-logo-link img{
 	height: auto;
 }
 
+.headline--post-title a{
+	text-decoration: none !important;
+}
 
-
-
+.generic-content {
+    margin-bottom: 50px;
+}
+.post-item{
+	padding-bottom: 0;
+}
 
 
 
