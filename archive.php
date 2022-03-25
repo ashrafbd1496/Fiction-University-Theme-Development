@@ -9,7 +9,7 @@ get_header(); ?>
         <?php the_archive_title();?>
       </h1>
       <div class="page-banner__intro">
-        <p><?php  echo __('Keep up with our latest news','funiversity'); ?></p>
+        <p><?php  the_archive_description(); ?></p>
       </div>
     </div>  
   </div>
