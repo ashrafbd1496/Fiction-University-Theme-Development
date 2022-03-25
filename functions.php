@@ -19,7 +19,7 @@ add_action('wp_enqueue_scripts','funiversity_files');
 
 
 function funiversity_supports(){
-  add_theme_support( 'custom-logo' );
+  add_theme_support('custom-logo');
   load_theme_textdomain('funiversity', get_template_directory() . '/languages');
   register_nav_menu('HeaderMenuLocation','Header Menu Location');
   register_nav_menu('FooterLocationExplore','Footer Location Explore');
