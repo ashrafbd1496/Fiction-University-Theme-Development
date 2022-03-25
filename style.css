@@ -48,6 +48,13 @@ a.page-numbers, .current {
 
 }
 
+a.nu.gray.btn.btn--blue.btn--small {
+    display: block;
+    width: 75px;
+    text-decoration: none;
+    font-weight: 700;
+
+}
 
 
 
