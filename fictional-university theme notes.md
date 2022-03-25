@@ -35,4 +35,6 @@ wp_enqueue_script('script_name',get_theme_file_uri('file_path',array('jquery'),'
 
 *** to 100 functions wp comunity use- https://vegibit.com/the-top-100-most-commonly-used-wordpress-functions/
 
+*** to show archive page title <?php the_archive_title(); ?>
+
 *** 
