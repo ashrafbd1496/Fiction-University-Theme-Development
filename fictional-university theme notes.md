@@ -65,3 +65,24 @@ wp_enqueue_script('script_name',get_theme_file_uri('file_path',array('jquery'),'
 
  *** acf er event date field group  return format hobe - 20220326
 
+ *** wp query with custom post type meta query - 
+ 	<?php 
+        $today = date('Ymd');
+          $eventPosts = new WP_Query(array(
+            'posts_per_page' => 2,
+            'post_type' =>'event',
+            'meta_key' =>'event_date',
+            'orderby' =>'meta_value_num',
+            'order' =>'ASC',
+            'meta_query'  => array(
+              array(
+                'key' => 'event_date',
+                'compare' => '>=',
+                'value' => $today,
+                'type' => 'numaric',
+              ),
+            ),
+
+          ));
+        ?>
+
