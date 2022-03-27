@@ -55,7 +55,9 @@ a.nu.gray.btn.btn--blue.btn--small {
     font-weight: 700;
 
 }
-
+.past-events-link a{
+    text-decoration: none;
+}
 
 
 
