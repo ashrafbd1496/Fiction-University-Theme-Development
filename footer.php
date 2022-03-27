@@ -52,7 +52,7 @@
                   <a href="#" class="social-color-youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                 </li>
                 <li>
-                  <a href="#" class="social-color-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/in/mdashraf/" class="social-color-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                 </li>
                 <li>
                   <a href="#" class="social-color-instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
