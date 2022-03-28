@@ -45,34 +45,41 @@ while (have_posts()) {
 
               ));
 
-              while($eventPosts->have_posts()){
-                $eventPosts->the_post(); ?>
+              if ($eventPosts->have_posts()) {
+	              	echo '<hr class= "section-break">';
+	              	echo '<h2 class="headline headline--samll"> Upcomming '. get_the_title() . ' Events</h2>';
+	              	echo '<hr class="space">';
 
-                  <div class="event-summary">
-                    <a class="event-summary__date event-summary__date--beige t-center" href="#">
-                      <span class="event-summary__month">
-                        <?php 
-                        $eventDate = new DateTime(get_field('event_date'));
+	              while($eventPosts->have_posts()){
+	                $eventPosts->the_post(); ?>
 
-                        echo $eventDate->format('M'); ?>
-                      </span>
-                      <span class="event-summary__day"><?php echo $eventDate->format('d'); ?></span>
-                    </a>
-                    <div class="event-summary__content">
-                      <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
-                      <p>
-                         <?php if(has_excerpt()){
-                        echo get_the_excerpt();
+	                  <div class="event-summary">
+	                    <a class="event-summary__date event-summary__date--beige t-center" href="#">
+	                      <span class="event-summary__month">
+	                        <?php 
+	                        $eventDate = new DateTime(get_field('event_date'));
 
-                      }else{
-                        echo wp_trim_words(get_the_content(),18); 
+	                        echo $eventDate->format('M'); ?>
+	                      </span>
+	                      <span class="event-summary__day"><?php echo $eventDate->format('d'); ?></span>
+	                    </a>
+	                    <div class="event-summary__content">
+	                      <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+	                      <p>
+	                         <?php if(has_excerpt()){
+	                        echo get_the_excerpt();
 
-                      }?>
-                        <a href="<?php the_permalink(); ?>" class="nu gray btn btn--blue btn--small"><?php echo __('Read more','funiversity'); ?></a></p>
-                    </div>
-                  </div>
+	                      }else{
+	                        echo wp_trim_words(get_the_content(),18); 
 
-          <?php } wp_reset_postdata();
+	                      }?>
+	                        <a href="<?php the_permalink(); ?>" class="nu gray btn btn--blue btn--small"><?php echo __('Read more','funiversity'); ?></a></p>
+	                    </div>
+	                  </div>
+
+	          <?php } wp_reset_postdata();
+	         }
+	              
            ?>
 		
 	</div>
