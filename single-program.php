@@ -21,6 +21,38 @@ while (have_posts()) {
 
 		<!--<h2><?php the_title(); ?></h2>-->
 		<div class="generic-content"><?php the_content(); ?></div>
+
+	<?php 
+    $today = date('Ymd');
+      $relatedProfessors = new WP_Query(array(
+        'posts_per_page' => -1,
+        'post_type' =>'professor',
+        'orderby' =>'title',
+        'order' =>'ASC',
+        'meta_query'  => array(
+          array(
+          	'key'	=> 'related_programs',
+          	'compare'	=> 'LIKE',
+          	'value'	=> '"'. get_the_ID() .'"',
+          ),
+        ),
+
+      ));
+
+      if ($relatedProfessors->have_posts()) {
+        	echo '<hr class= "section-break">';
+        	echo '<h2 class="headline headline--samll">' .get_the_title() . ' Professor</h2>';
+        	echo '<hr class="space">';
+
+        while($relatedProfessors->have_posts()){
+         $relatedProfessors->the_post(); ?>
+
+           <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+
+	      <?php } wp_reset_postdata();
+	         }
+	              
+           ?>
 		 <?php 
             $today = date('Ymd');
               $eventPosts = new WP_Query(array(
