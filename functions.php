@@ -21,6 +21,9 @@ function funiversity_supports(){
   add_theme_support('custom-logo');
   add_theme_support('title-tag');
  add_theme_support( 'post-thumbnails' ); 
+ add_image_size( 'professorLandscape', 400, 250, true );
+ add_image_size( 'professorPortrait', 480, 650, true );
+ add_image_size( 'pageBanner', 1500, 350, true );
   load_theme_textdomain('funiversity', get_template_directory() . '/languages');
   register_nav_menu('HeaderMenuLocation','Header Menu Location');
   register_nav_menu('FooterLocationExplore','Footer Location Explore');

@@ -4,11 +4,13 @@ while (have_posts()) {
 	the_post();?>
 
 	<div class="page-banner">
-    <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg') ?>);"></div>
+    <div class="page-banner__bg-image" style="background-image: url(<?php
+    	$bannerImage = get_field('page_banner_background_image');
+    	echo $bannerImage['sizes']['pageBanner'];?>);"></div>
     <div class="page-banner__content container container--narrow">
       <h1 class="page-banner__title"><?php the_title(); ?></h1>
       <div class="page-banner__intro">
-        <p><?php echo __('Banner Intro Text goes here','funiversity'); ?></p>
+        <p><?php the_field('page_banner_subtitle'); ?></p>
       </div>
     </div>  
   </div>
@@ -19,7 +21,7 @@ while (have_posts()) {
 		<!--<h2><?php //the_title(); ?></h2>-->
 		<div class="generic-content">
 			<div class="row group">
-				<div class="one-third"><?php the_post_thumbnail();?></div>
+				<div class="one-third"><?php the_post_thumbnail('professorPortrait');?></div>
 				<div class="two-third"><?php the_content(); ?></div>
 			</div>
 		</div>

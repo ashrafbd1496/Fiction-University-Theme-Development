@@ -1,7 +1,7 @@
 ## Fiction University Theme Development Project
 
 ### Lists of the plugins used for this project
-- Contact form 7
+- Regenerate Thumbnail
 - Advance Custom Field(ACF)
 
 
