@@ -23,6 +23,7 @@ while (have_posts()) {
 		<div class="generic-content"><?php the_content(); ?></div>
 
 	<?php 
+		
     $today = date('Ymd');
       $relatedProfessors = new WP_Query(array(
         'posts_per_page' => -1,
@@ -44,14 +45,21 @@ while (have_posts()) {
         	echo '<h2 class="headline headline--samll">' .get_the_title() . ' Professor</h2>';
         	echo '<hr class="space">';
 
+        echo '<ul class="professor-cards">';
         while($relatedProfessors->have_posts()){
          $relatedProfessors->the_post(); ?>
-
-           <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-
-	      <?php } wp_reset_postdata();
+          
+          <li class="professor-card__list-item">
+            <a href="<?php the_permalink(); ?>" class="professor-card">
+              <img class="professor-card__image" src="<?php the_post_thumbnail_url(); ?>">
+              <span class="professor-card__name"><?php the_title(); ?></span>
+            </a>
+          </li>
+        
+	      <?php } 
+	      echo "</ul>";
 	         }
-	              
+	       wp_reset_postdata();
            ?>
 		 <?php 
             $today = date('Ymd');
@@ -109,9 +117,9 @@ while (have_posts()) {
 	                    </div>
 	                  </div>
 
-	          <?php } wp_reset_postdata();
+	          <?php } 
 	         }
-	              
+	          wp_reset_postdata();
            ?>
 		
 	</div>
