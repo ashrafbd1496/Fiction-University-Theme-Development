@@ -3,17 +3,16 @@
   get_header();
 
   while(have_posts()) {
-    the_post(); ?>
+    the_post();
+    pageBanner(array(
+    	//page title and susbtitle can be returnfrom here
+    	//'title'	=> 'Here is the title',
+    	//'subtitle'	=> 'Here is the subtitle',
+    			//'photo' => 'https://images.unsplash.com/photo-1553851684-3037dd0507c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGZpY3Rpb24lMjB1bml2ZXJzaXR5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+
+    ));
+     ?>
     
-    <div class="page-banner">
-    <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg') ?>);"></div>
-    <div class="page-banner__content container container--narrow">
-      <h1 class="page-banner__title"><?php the_title(); ?></h1>
-      <div class="page-banner__intro">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum eius harum, unde, perferendis odit facilis aperiam recusandae</p>
-      </div>
-    </div>  
-  </div>
 
   <div class="container container--narrow page-section">
 
