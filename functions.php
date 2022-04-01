@@ -88,3 +88,8 @@ function funiversity_adjust_queries($query){
 }
 add_action('pre_get_posts','funiversity_adjust_queries');
 
+function funiversity_map_api($api){
+$api['key'] = 'AIzaSyAQR-02hhSHfpnjxmMnh2lid9Ng113eFB4';
+return $api;
+}
+add_filter('acf/fields/google_map/api', 'funiversity_map_api');
