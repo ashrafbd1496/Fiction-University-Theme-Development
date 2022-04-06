@@ -1,1 +1,49 @@
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum eius harum, unde, perferendis odit facilis aperiam recusandae libero ad pariatur. Dicta iusto culpa ea laboriosam aut deleniti deserunt incidunt quaerat soluta quae veniam cumque et, eligendi doloremque ipsa atque consequuntur odit dolore, minima? Assumenda, odio, aliquid quibusdam enim dicta odit consequuntur doloribus optio aut non dolore aspernatur accusantium nihil ipsa reprehenderit voluptatibus quaerat, quo debitis eaque rerum ea at necessitatibus labore facere, nostrum. Ullam assumenda est dicta quasi quidem sunt quo nihil illo officia, quia tenetur molestiae cum praesentium ipsam animi corrupti aliquid molestias ab. Voluptatibus temporibus ut quibusdam, esse.
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo: Switch from Google Maps to Mapbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map">
+    	<h3>Mapbox</h3>
+    </div>
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiYXNocmFmYmQiLCJhIjoiY2t3eGIyYWpmMGJ3aTJvdXJ3MHo4c3BjaiJ9.fNLMo3-NITDAroy67Adh-A';
+
+      const map = new mapboxgl.Map({
+        container: 'map', // HTML container id
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-21.92661562, 64.14356426], // starting position as [lng, lat]
+        zoom: 13
+      });
+
+      const popup = new mapboxgl.Popup().setHTML(
+        `<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>`
+      );
+
+      const marker = new mapboxgl.Marker()
+        .setLngLat([-21.92661562, 64.14356426])
+        .setPopup(popup)
+        .addTo(map);
+    </script>
+  </body>
+</html>

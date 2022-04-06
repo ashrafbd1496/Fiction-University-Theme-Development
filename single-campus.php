@@ -13,12 +13,15 @@
       </div>
 
       <div class="generic-content"><?php the_content(); ?></div>
+     
 
       <?php 
-        $mapLocation = get_field('map_location');
+      $mapLocation = get_field('mapbox_map');
+      
+     
       ?>
-
-      <div class="acf-map">
+  
+      <div id="map" class="acf-map">
           <div class="marker" data-lat="<?php echo $mapLocation['lat'] ?>" data-lng="<?php echo $mapLocation['lng']; ?>">
             <h3><?php the_title(); ?></h3>
             <?php echo $mapLocation['address']; ?>
@@ -42,7 +45,7 @@
 
         if ($relatedPrograms->have_posts()) {
           echo '<hr class="section-break">';
-        echo '<h2 class="headline headline--medium"><?php echo __("Programs Available At This Campus","Programs Available At This Campus") ?></h2>';
+        echo '<h2 class="headline headline--medium"><?php echo __("Programs Available At This Campus","funiversity") ?></h2>';
 
         echo '<ul class="min-list link-list">';
         while($relatedPrograms->have_posts()) {
@@ -55,6 +58,28 @@
         }
 
         wp_reset_postdata();
+
+        echo "<script>
+              mapboxgl.accessToken = 'pk.eyJ1IjoiYXNocmFmYmQiLCJhIjoiY2wxbG5sYXUyMGJxODNvbzY4bjNoZWJ2aCJ9.FZ4t2ic8dJNs50vY5XIseA';
+
+              const map = new mapboxgl.Map({
+                container: 'map', // HTML container id
+                style: 'mapbox://styles/ashrafbd/cl1loa1tj000t14r2l9lszw0p', // style URL
+                center: [91.815536, 22.341900], // starting position as [lng, lat]
+                zoom: 13
+              });
+
+              const popup = new mapboxgl.Popup().setHTML(
+                `<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>`
+              );
+
+              const marker = new mapboxgl.Marker()
+                .setLngLat([91.815536, 22.341900])
+                .setPopup(popup)
+                .addTo(map);
+          </script>";
+
+    
 
       ?>
 

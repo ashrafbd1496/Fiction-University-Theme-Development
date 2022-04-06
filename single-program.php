@@ -120,6 +120,22 @@ while (have_posts()) {
 	          <?php } 
 	         }
 	          wp_reset_postdata();
+
+	         
+	          $relatedCamuses = get_field('related_campus');
+	          if ($relatedCamuses) {
+	           	echo '<hr class="section-break">';
+	           	echo '<h2 class = "headline headline--samll">' . get_the_title() . ' is available at these campuses</h2>';
+	          }
+	          echo '<ul class="min-list link-list">';
+	          foreach($relatedCamuses as $campus){ ?>
+	          	<li><a href="<?php echo get_the_permalink($campus); ?>"><?php echo get_the_title($campus) ;?></a></li>
+
+	          <?php  }
+
+	           echo '</ul>';
+
+
            ?>
 		
 	</div>

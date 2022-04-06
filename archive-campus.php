@@ -23,8 +23,6 @@ pageBanner(array(
   <?php } ?>
 </div>
 
-
-
 </div>
 
 <?php get_footer();
