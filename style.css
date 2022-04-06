@@ -70,9 +70,13 @@ a.nu.gray.btn.btn--blue.btn--small {
     height: 300px;
 }
 
+.search-overlay__icon, .search-overlay__close{
+    font-size: 2.8rem !important;
+}
 
-
-
+.site-header__menu-trigger{
+    display: none !important;
+}
 
 
 
