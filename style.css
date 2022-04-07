@@ -71,12 +71,16 @@ a.nu.gray.btn.btn--blue.btn--small {
 }
 
 .search-overlay__icon, .search-overlay__close{
-    font-size: 2.8rem !important;
+    font-size: 2.0rem !important;
 }
 
 .site-header__menu-trigger{
     display: none !important;
 }
+/*.search-overlay--active{
+    padding: 0 40px;
+}
+*/
 
 
 
