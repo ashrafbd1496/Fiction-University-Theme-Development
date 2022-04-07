@@ -77,11 +77,9 @@ a.nu.gray.btn.btn--blue.btn--small {
 .site-header__menu-trigger{
     display: none !important;
 }
-/*.search-overlay--active{
-    padding: 0 40px;
+.search-overlay .container {
+    margin: 0 50px;
 }
-*/
-
 
 
 
