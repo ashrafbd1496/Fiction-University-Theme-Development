@@ -4070,35 +4070,60 @@ __webpack_require__.r(__webpack_exports__);
 
 class Search {
   constructor() {
-    this.resulsDiv = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-overlay__results');
+    this.resultsDiv = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-overlay__results');
     this.openButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-search-trigger');
     this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.search-overlay__close');
     this.searchOverlay = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.search-overlay');
     this.searchField = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-term');
     this.events();
     this.isOverlayOpen = false;
+    this.isSpinnerVisible = false;
     this.typingTimer;
+    this.previousValue;
   }
 
   events() {
     this.openButton.on('click', this.openOverlay.bind(this));
     this.closeButton.on('click', this.closeOverlay.bind(this));
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('keyup', this.KeyPressDispatcher.bind(this));
-    this.searchField.on('keydown', this.typingLogic.bind(this));
+    this.searchField.on('keyup', this.typingLogic.bind(this));
   }
 
   typingLogic() {
-    clearTimeout(this.typingTimer);
-    this.typingTimer = setTimeout(this.getResults.bind(this), 2000);
+    if (this.searchField.val() != this.previousValue) {
+      clearTimeout(this.typingTimer);
+
+      if (this.searchField.val()) {
+        if (!this.isSpinnerVisible) {
+          this.resultsDiv.html('<div class = "spinner-loader"></div>');
+          this.isSpinnerVisible = true;
+        }
+
+        this.typingTimer = setTimeout(this.getResults.bind(this), 2000);
+      } else {
+        this.resultsDiv.html('');
+        this.isSpinnerVisible = false;
+      }
+    }
+
+    this.previousValue = this.searchField.val();
   }
 
   getResults() {
-    this.resulsDiv.html('Imagine real search result here . . ');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().getJSON('http://fictionaluniversity.local/wp-json/wp/v2/posts?search=' + this.searchField.val(), posts => {
+      this.resultsDiv.html(`
+
+      <h2 class="search-overlay__section-title">General Information </h2>
+      <ul class ="link-list min-list">
+        ${posts.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li></li>`).join(``)}
+      </ul>
+      `);
+    });
   }
 
   KeyPressDispatcher(e) {
     //console.log(e.keyCode);
-    if (e.keyCode == 38 && !this.isOverlayOpen) {
+    if (e.keyCode == 38 && !this.isOverlayOpen && !jquery__WEBPACK_IMPORTED_MODULE_0___default()("input, textarea").is(':focus')) {
       this.openOverlay();
     }
 
