@@ -39,10 +39,15 @@ wp_enqueue_style('funiversity-template-style2',get_theme_file_uri('/build/index.
 wp_enqueue_style('funiversity-main-stylesheet',get_stylesheet_uri());
 
   //js
+  wp_enqueue_script('gogle-map-api','//maps.googleapis.com/maps/api/js?key=AIzaSyAQR-02hhSHfpnjxmMnh2lid9Ng113eFB4&callback=initMap');
   wp_enqueue_script('mapbox-js','//api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js');
   wp_enqueue_script('funiversity-template-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
   wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
   wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+  wp_localize_script( 'funiversity-template-js','funiversityData', array(
+    'root_url' => get_site_url(),
+    ) );
 
 }
 
