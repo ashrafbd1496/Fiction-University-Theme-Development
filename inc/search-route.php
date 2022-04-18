@@ -6,9 +6,10 @@ function funiversityRegisterSearch(){
 		'callback'	=> 'funiversitySearchResults'
 	));
 }
-function funiversitySearchResults(){
+function funiversitySearchResults($data){
 	$professors = new WP_Query(array(
-		'post_type'	=> 'professor', 
+		'post_type' => array('post', 'page', 'professor', 'program', 'campus', 'event'),
+    	's' => sanitize_text_field($data['term'])
 	));
 	$professorResults = array();
 
