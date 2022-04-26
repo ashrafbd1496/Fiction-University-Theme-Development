@@ -45,7 +45,48 @@ class Search {
     this.previousValue = this.searchField.val();
   }
 
-   getResults(){
+ getResults(){
+    $.getJSON(funiversityData.root_url + '/wp-json/funiversity/v1/search?term=' + this.searchField.val(), (results) =>{
+      this.resultsDiv.html(`
+        <div class="row">
+          <div class="one-third">
+            <h2 class="search-overlay__section-title">General Information </h2>
+              ${results.generalInfo.length ? '<ul class ="link-list min-list">' : '<p>No general Information matches here</p>'}
+              ${results.generalInfo.map(item=>`<li><a href="${item.permalink}">${item.title}</a>${item.postType == 'post' ? ` by ${item.authorName}` : ''}</li></li>`).join(``)}
+              ${results.generalInfo.length ? '</ul>' : ''}
+          </div>
+           <div class="one-third">
+            <h2 class="search-overlay__section-title">Professors </h2>
+              ${results.professors.length ? '<ul class ="link-list min-list">' : `<p>No Professors matches here. <a href="/professors">View All Professors</a></p>`}
+              ${results.professors.map(item=>`<li><a href="${item.permalink}">${item.title}</a></li></li>`).join(``)}
+              ${results.professors.length ? '</ul>' : ''}
+
+                <h2 class="search-overlay__section-title">Campuses </h2>
+                  ${results.campuses.length ? '<ul class ="link-list min-list">' : `<p>No Campuses matches here. <a href="/campuses">View All Campuses</a></p>`}
+                  ${results.campuses.map(item=>`<li><a href="${item.permalink}">${item.title}</a></li></li>`).join(``)}
+                  ${results.campuses.length ? '</ul>' : ''}
+          </div>
+
+           <div class="one-third">
+            <h2 class="search-overlay__section-title">Programs </h2>
+              ${results.programs.length ? '<ul class ="link-list min-list">' : `<p>No Programs matches here. <a href="/programs">View All Programs</a></p>`}
+              ${results.programs.map(item=>`<li><a href="${item.permalink}">${item.title}</a></li></li>`).join(``)}
+              ${results.programs.length ? '</ul>' : ''}
+
+              <h2 class="search-overlay__section-title">Events</h2>
+                ${results.events.length ? '<ul class ="link-list min-list">' : `<p>No Events matches here. <a href="/events">View All Events</a></p>`}
+                ${results.events.map(item=>`<li><a href="${item.permalink}">${item.title}</a></li></li>`).join(``)}
+                ${results.events.length ? '</ul>' : ''}
+           
+          </div>
+        </div>
+         `);
+    });
+  }
+
+
+/**
+ getResults(){
     $.when($.getJSON(funiversityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()),
       $.getJSON(funiversityData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val()),
       ).then((posts, pages) =>{
@@ -61,6 +102,8 @@ class Search {
       this.resultsDiv.html('<p> Unexpected Error ! Please try again. </p>')
     });
   }
+ */
+  
   
   KeyPressDispatcher(e){
     //console.log(e.keyCode);
