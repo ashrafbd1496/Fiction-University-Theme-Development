@@ -20,7 +20,7 @@ while (have_posts()) {
 		    </div>
 
 		<!--<h2><?php the_title(); ?></h2>-->
-		<div class="generic-content"><?php the_content(); ?></div>
+		<div class="generic-content"><?php the_field('main_body_content'); ?></div>
 
 	<?php 
 		
