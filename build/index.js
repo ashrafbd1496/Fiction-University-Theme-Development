@@ -4123,12 +4123,18 @@ class Search {
            <div class="one-third">
             <h2 class="search-overlay__section-title">Professors </h2>
               ${results.professors.length ? '<ul class ="link-list min-list">' : `<p>No Professors matches here. <a href="/professors">View All Professors</a></p>`}
-              ${results.professors.map(item => `<li><a href="${item.permalink}">${item.title}</a></li></li>`).join(``)}
+              ${results.professors.map(item => ` <li class="professor-card__list-item">
+                  <a class="professor-card" href="${item.permalink}">
+                    <img class="professor-card__image" src="${item.image}">
+                    <span class="professor-card__name">${item.title}</span>
+                  </a>
+                </li>`).join(``)}
               ${results.professors.length ? '</ul>' : ''}
 
                 <h2 class="search-overlay__section-title">Campuses </h2>
                   ${results.campuses.length ? '<ul class ="link-list min-list">' : `<p>No Campuses matches here. <a href="/campuses">View All Campuses</a></p>`}
-                  ${results.campuses.map(item => `<li><a href="${item.permalink}">${item.title}</a></li></li>`).join(``)}
+                  ${results.campuses.map(item => `
+                    <li><a href="${item.permalink}">${item.title}</a></li></li>`).join(``)}
                   ${results.campuses.length ? '</ul>' : ''}
           </div>
 
