@@ -56,8 +56,8 @@ function funiversitySearchResults($data){
 		));
 		}
 	}
-
-	$programsMetaQuery = array('relation' => 'OR');
+	if ($results['programs']) {
+		$programsMetaQuery = array('relation' => 'OR');
 
 	foreach($results['programs'] as $item){
 		array_push($programsMetaQuery,array(
@@ -81,5 +81,6 @@ function funiversitySearchResults($data){
 		}
 	}
 	$results['professors'] = array_values(array_unique($results['professors'], SORT_REGULAR));
+	}
 	return $results; 
 }
