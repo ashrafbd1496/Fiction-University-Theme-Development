@@ -17,19 +17,14 @@
   <div class="container container--narrow page-section">
 
   	<?php 
-
   		$theParent =  wp_get_post_parent_id(get_the_ID());
-
   		if ($theParent) { ?>
-
   			  <div class="metabox metabox--position-up metabox--with-home-link">
 		      <p><a class="metabox__blog-home-link" href="<?php echo get_permalink($theParent); ?>"><i class="fa fa-home" aria-hidden="true"></i> Back to <?php echo get_the_title($theParent); ?></a> <span class="metabox__main"><?php echo the_title(); ?></span></p>
 		    </div>
 
   		<?php }
   	 ?>
-
-  
     <?php 
     	//condition for showing sidebar menu for parent or child pages only
     	
@@ -61,12 +56,10 @@
 		      </ul>
 		    </div>
 		<?php } ?>
-    
-
+   
     <div class="generic-content">
       <?php the_content(); ?>
     </div>
-
   </div>
     
   <?php } 

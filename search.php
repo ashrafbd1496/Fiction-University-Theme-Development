@@ -26,8 +26,8 @@
      <?php } 
      echo paginate_links();
     }else{
-      echo '<h2 class="headline headline--samll-plus">No Search Result Match that Search !</h2>';
+      echo '<h2 class="headline headline--samll-plus mb-5">No Search Result Match that Search !</h2>';
     }
-      
+    get_search_form();
      ?>
 <?php get_footer(); ?>
