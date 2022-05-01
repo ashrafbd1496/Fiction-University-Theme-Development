@@ -2,9 +2,8 @@
  pageBanner(array(
      // page title and susbtitle can be returnfrom here
       'title' => 'Search Results',
-      'subtitle'  => 'You Searched for &ldquo;'.get_search_query(). '&rdquo;',
-          'photo' => 'https://images.unsplash.com/photo-1553851684-3037dd0507c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGZpY3Rpb24lMjB1bml2ZXJzaXR5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-
+      'subtitle'  => 'You Searched for &ldquo;'.esc_html(get_search_query(false)). '&rdquo;',
+      'photo' => 'https://images.unsplash.com/photo-1553851684-3037dd0507c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGZpY3Rpb24lMjB1bml2ZXJzaXR5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     ));
     ?>
 <!--  <div class="page-banner">
@@ -19,24 +18,16 @@
   </div> -->
    <div class="container container--narrow page-section">
     <?php 
+    if (have_posts()) {
       while (have_posts()) {
-        the_post();?>
-
-        <div class="post-item">
-          <h3 class="headline headline--small-plus headline--post-title"><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
-        </div>
-
-        <div class="metabox">
-         <p>Posted by <?php the_author_posts_link(); ?> on <?php the_time('n.j.y'); ?> in <?php echo get_the_category_list(', '); ?></p>
-        </div>
-
-        <div class="generic-content">
-          <?php echo the_excerpt(); ?>
-          <p><a class="btn btn--small btn--blue" href="<?php the_permalink(); ?>">Continue Reading &raquo;</a></p>
-        </div>
-
+        the_post();
+        get_template_part('template-parts/content', get_post_type());
+        ?>
      <?php } 
      echo paginate_links();
+    }else{
+      echo '<h2 class="headline headline--samll-plus">No Search Result Match that Search !</h2>';
+    }
+      
      ?>
-   </div>
 <?php get_footer(); ?>
