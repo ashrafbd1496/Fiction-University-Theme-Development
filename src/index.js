@@ -5,11 +5,13 @@ import MobileMenu from "./modules/MobileMenu"
 import HeroSlider from "./modules/HeroSlider"
 import GoogleMap from "./modules/GoogleMap"
 import Search from "./modules/Search"
+import MyNotes from "./modules/MyNotes"
 
 // Instantiate a new object using our modules/classes
-var mobileMenu = new MobileMenu()
-var heroSlider = new HeroSlider()
-var heroSlider = new GoogleMap()
-var MagicalSearch = new Search()
+const mobileMenu = new MobileMenu()
+const heroSlider = new HeroSlider()
+const googleMap = new GoogleMap()
+const MagicalSearch = new Search()
+const myNotes = new MyNotes()
 
  
