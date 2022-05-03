@@ -114,3 +114,11 @@ function acf_mapbox_api( $api ) {
 }
 add_filter( 'acf/fields/mapbox/api', 'acf_mapbox_api' );
 
+add_action('admin_init','redirectSubstoFrntend');
+function redirectSubstoFrntend(){
+    $ourCurrentUser = wp_get_current_user();
+      if(count($ourCurrentUser->roles) == 1 AND $ourCurrentUser->roles[0]== 'subscriber'){
+      wp_redirect(site_url('/'));
+      exit;
+    }
+  }
