@@ -53,6 +53,7 @@ wp_enqueue_style('funiversity-main-stylesheet',get_stylesheet_uri());
 
   wp_localize_script( 'funiversity-template-js','funiversityData', array(
     'root_url' => get_site_url(),
+    'nonce' => wp_create_nonce('wp_rest'),
     ) );
 
 }
