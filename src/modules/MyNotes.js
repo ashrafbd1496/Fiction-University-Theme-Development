@@ -7,7 +7,7 @@ class MyNotes{
 		$('.delete-note').on('click', this.deleteNote);
 		$('.edit-note').on('click', this.editNote.bind(this));
 		$('.update-note').on('click', this.updateNote.bind(this));
-		$('.create-note').on('click', this.createNote.bind(this));
+		$('.submit-note').on('click', this.createNote.bind(this));
 	}
 	editNote(e){
 		var thisNote = $(e.target).parents('li');
@@ -64,8 +64,16 @@ class MyNotes{
 			type: 'POST',
 			data: ourNewPost,
 			success: (response) =>{
-				$('.new-note-title','.new-note-body').val('');
-				$('<li>Imagine real data here</li>').prependTo('#my-notes').hide().slideDown();
+				$('.new-note-title,.new-note-body').val('');
+				$(`
+				<li data-id="${response.id}">
+  				<input readonly class="note-titile-field" value="${response.title.raw}">
+  				<span class="edit-note"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</span>
+  				<span class="delete-note"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</span>
+  				<textarea readonly class="note-body-field" name="note-body" id="note-body">${response.content.raw}</textarea>
+          		<span class="update-note btn btn--blue btn--small"><i class="fa fa-arrow-right" aria-hidden="true"></i> Save</span>
+  			</li>
+					`).prependTo('#my-notes').hide().slideDown();
 				console.log('data updated');
 				console.log(response);
 			},
