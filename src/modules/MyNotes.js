@@ -6,6 +6,7 @@ class MyNotes{
 	events(){
 		$('.delete-note').on('click', this.deleteNote);
 		$('.edit-note').on('click', this.editNote.bind(this));
+		$('.update-note').on('click', this.updateNote.bind(this));
 	}
 	editNote(e){
 		var thisNote = $(e.target).parents('li');
@@ -43,6 +44,30 @@ class MyNotes{
 			},
 			error: (response) =>{
 				console.log('Sorry');
+				console.log(response);
+			}
+		});
+	}
+	updateNote(e){
+		var thisNote = $(e.target).parents('li');
+		var ourUpdatedPost = {
+		'title': thisNote.find('.note-titile-field').val(),
+		'content': thisNote.find('.note-body-field').val()
+	}
+		$.ajax({
+			beforeSend: (xhr) =>{
+				xhr.setRequestHeader('X-WP-Nonce', funiversityData.nonce);
+			},
+			url: funiversityData.root_url + '/wp-json/wp/v2/note/' + thisNote.data('id'),
+			type: 'POST',
+			data: ourUpdatedPost,
+			success: (response) =>{
+				this.makeNoteReadOnly(thisNote);
+				console.log('data updated');
+				console.log(response);
+			},
+			error: (response) =>{
+				console.log('Did not save data');
 				console.log(response);
 			}
 		});
