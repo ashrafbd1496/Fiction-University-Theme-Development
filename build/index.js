@@ -4077,9 +4077,9 @@ class MyNotes {
   }
 
   events() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.delete-note').on('click', this.deleteNote);
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.edit-note').on('click', this.editNote.bind(this));
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.update-note').on('click', this.updateNote.bind(this));
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#my-notes').on('click', '.delete-note', this.deleteNote);
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#my-notes').on('click', '.edit-note', this.editNote.bind(this));
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#my-notes').on('click', '.update-note', this.updateNote.bind(this));
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.submit-note').on('click', this.createNote.bind(this));
   }
 

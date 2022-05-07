@@ -3,15 +3,11 @@ if (!is_user_logged_in()) {
 	wp_redirect(esc_url(site_url('/')));
 	exit;
 }
-
 get_header();
-
   while(have_posts()) {
     the_post();
     pageBanner(array());
      ?>
-    
-
   <div class="container container--narrow page-section">
     <div class="create-note">
       <h2 class="headline headline--medium">Create New Note</h2>

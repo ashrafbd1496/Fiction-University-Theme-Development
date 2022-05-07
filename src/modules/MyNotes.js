@@ -4,9 +4,9 @@ class MyNotes{
 	this.events();
 	}
 	events(){
-		$('.delete-note').on('click', this.deleteNote);
-		$('.edit-note').on('click', this.editNote.bind(this));
-		$('.update-note').on('click', this.updateNote.bind(this));
+		$('#my-notes').on('click', '.delete-note',this.deleteNote);
+		$('#my-notes').on('click', '.edit-note',this.editNote.bind(this));
+		$('#my-notes').on('click', '.update-note',this.updateNote.bind(this));
 		$('.submit-note').on('click', this.createNote.bind(this));
 	}
 	editNote(e){
