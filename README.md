@@ -3,5 +3,6 @@
 ### Lists of the plugins used for this project
 - Regenerate Thumbnail
 - Advance Custom Field(ACF)
+- Members by MemberPress
 
 
