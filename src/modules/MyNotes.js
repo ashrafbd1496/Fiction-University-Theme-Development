@@ -40,6 +40,10 @@ class MyNotes{
 			url: funiversityData.root_url + '/wp-json/wp/v2/note/' + thisNote.data('id'),
 			type: 'DELETE',
 			success: (response) =>{
+				thisNote.slideUp();
+				if (response.userNoteCount < 5 ) {
+					$('.note-limit-message').removeClass('active');
+				}
 				console.log('congrats');
 				console.log(response);
 			},
