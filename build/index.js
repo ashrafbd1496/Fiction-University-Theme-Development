@@ -4154,6 +4154,10 @@ class MyNotes {
         console.log(response);
       },
       error: response => {
+        if (response.responseText == 'You have reached your note limit.') {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.note-limit-message').addClass('active');
+        }
+
         console.log('Did not save data');
         console.log(response);
       }

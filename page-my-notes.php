@@ -14,6 +14,7 @@ get_header();
       <input class="new-note-title" placeholder="title here" type="text">
       <textarea class="new-note-body" placeholder="Your Note here . . . "></textarea>
       <span class="submit-note">Create Note</span>
+      <span class="note-limit-message">Note limit reached: Delete an existing one to make new one.</span>
     </div>
   	<ul class="min-list link-list" id="my-notes">
   		<?php $userNotes = new WP_Query(array(
