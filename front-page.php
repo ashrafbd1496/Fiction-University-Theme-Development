@@ -5,7 +5,7 @@
       <div class="page-banner__content container t-center c-white">
         <h1 class="headline headline--large">Welcome!</h1>
       
-          <input type="text" value=" " name="s" id="s" />
+     <!--      <input type="text" value=" " name="s" id="s" /> -->
           
         <h2 class="headline headline--medium">We think you&rsquo;ll like it here.</h2>
         <h3 class="headline headline--small">Why don&rsquo;t you check out the <strong>major</strong> you&rsquo;re interested in?</h3>
