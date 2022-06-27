@@ -1,5 +1,6 @@
 <?php 
 require get_theme_file_path('/inc/search-route.php');
+//require get_theme_file_path('/inc/custom-post-type-cat.php');
 function funiversity_custom_rest(){
   register_rest_field('post','authorName', array(
     'get_callback' => function(){ return get_the_author();}
